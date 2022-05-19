@@ -1,9 +1,9 @@
 package it.prova.gestioneproprietari.dao;
 
-import it.prova.municipioAbitanteJPA.dao.abitante.AbitanteDAO;
-import it.prova.municipioAbitanteJPA.dao.abitante.AbitanteDAOImpl;
-import it.prova.municipioAbitanteJPA.dao.municipio.MunicipioDAO;
-import it.prova.municipioAbitanteJPA.dao.municipio.MunicipioDAOImpl;
+import it.prova.gestioneproprietari.dao.automobile.AutomobileDAO;
+import it.prova.gestioneproprietari.dao.automobile.AutomobileDAOImpl;
+import it.prova.gestioneproprietari.dao.proprietario.ProprietarioDAO;
+import it.prova.gestioneproprietari.dao.proprietario.ProprietarioDAOImpl;
 
 public class MyDaoFactory {
 
