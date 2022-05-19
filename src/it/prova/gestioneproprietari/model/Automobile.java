@@ -1,11 +1,33 @@
 package it.prova.gestioneproprietari.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="automobile")
 public class Automobile {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private Long id;
+	@Column(name="marca")
 	private String marca;
+	@Column(name="modello")
 	private String modello;
+	@Column(name="targa")
 	private String targa;
+	@Column(name="annoimmatricolazione")
 	private int annoImmatricolazione;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "proprietario_id")
 	private Proprietario proprietario;
 
 	public Automobile(String marca, String modello, String targa, int annoImmatricolazione, Proprietario proprietario) {
@@ -82,4 +104,7 @@ public class Automobile {
 		this.proprietario = proprietario;
 	}
 
+	public String toString() {
+		return "Automobile [Marca= "+marca+", Modello= "+modello+", Targa= "+targa+", Anno Immatricolazione= "+annoImmatricolazione+"]";
+	}
 }
