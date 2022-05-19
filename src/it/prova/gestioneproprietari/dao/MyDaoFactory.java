@@ -8,19 +8,19 @@ import it.prova.gestioneproprietari.dao.proprietario.ProprietarioDAOImpl;
 public class MyDaoFactory {
 
 	// rendiamo questo factory SINGLETON
-	private static AbitanteDAO abitanteDAOInstance = null;
-	private static MunicipioDAO municipioDAOInstance = null;
+	private static AutomobileDAO automobileDAOInstance = null;
+	private static ProprietarioDAO proprietarioDAOInstance = null;
 
-	public static AbitanteDAO getAbitanteDAOInstance() {
-		if (abitanteDAOInstance == null)
-			abitanteDAOInstance = new AbitanteDAOImpl();
-		return abitanteDAOInstance;
+	public static AutomobileDAO getAutomobileDAOInstance() {
+		if (automobileDAOInstance == null)
+			automobileDAOInstance = new AutomobileDAOImpl();
+		return automobileDAOInstance;
 	}
 
-	public static MunicipioDAO getMunicipioDAOInstance(){
-		if(municipioDAOInstance == null)
-			municipioDAOInstance= new MunicipioDAOImpl();
-		return municipioDAOInstance;
+	public static ProprietarioDAO getProprietarioDAOInstance(){
+		if(proprietarioDAOInstance == null)
+			proprietarioDAOInstance= new ProprietarioDAOImpl();
+		return proprietarioDAOInstance;
 	}
 
 }
