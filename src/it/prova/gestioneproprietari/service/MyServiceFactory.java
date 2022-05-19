@@ -1,6 +1,6 @@
 package it.prova.gestioneproprietari.service;
 
-import it.prova.municipioAbitanteJPA.dao.MyDaoFactory;
+import it.prova.gestioneproprietari.dao.MyDaoFactory;
 import it.prova.municipioAbitanteJPA.service.abitante.AbitanteService;
 import it.prova.municipioAbitanteJPA.service.abitante.AbitanteServiceImpl;
 import it.prova.municipioAbitanteJPA.service.municipio.MunicipioService;
