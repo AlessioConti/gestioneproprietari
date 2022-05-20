@@ -1,5 +1,7 @@
 package it.prova.gestioneproprietari.test;
 
+import java.util.List;
+
 import it.prova.gestioneproprietari.dao.EntityManagerUtil;
 import it.prova.gestioneproprietari.model.Automobile;
 import it.prova.gestioneproprietari.model.Proprietario;
@@ -22,10 +24,15 @@ public class TestProprietarioAutomobile {
 			/*
 			testInserisciProprietario(proprietarioService);
 			System.out.println("In tabella Proprietario sono presenti " +proprietarioService.listaTuttiProprietari().size()+ " elementi");
-			*/
+			
 			testInserisciAutomobile(automobileService);
 			System.out.println("In tabella Automobile sono presenti " +automobileService.listaTutteAutomobili().size()+ " elementi");
 			
+			testRimozioneProprietario(proprietarioService);
+			System.out.println("In tabella Proprietario sono presenti " +proprietarioService.listaTuttiProprietari().size()+ " elementi");
+			*/
+			testRimozioneAutomobile(automobileService);
+			System.out.println("In tabella Automobile sono presenti " +automobileService.listaTutteAutomobili().size()+ " elementi");
 			
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -62,6 +69,44 @@ public class TestProprietarioAutomobile {
 			throw new RuntimeException("testInserisciAutomobile FAILED: record non inserito correttamente");
 		
 		System.out.println("testInserisciAutomobile concluso......");
+	}
+	
+	public static void testRimozioneProprietario(ProprietarioService proprietarioService) throws Exception{
+		System.out.println("testRimozioneProprietario inizializzato......");
+		
+		List<Proprietario> listaProprietari = proprietarioService.listaTuttiProprietari();
+		if(listaProprietari.isEmpty())
+			throw new RuntimeException("testRimozioneProprietario FAILED: non sono presenti record");
+		
+		Proprietario proprietarioDaRimuovere = listaProprietari.get(0);
+		
+		Long idRimozione = proprietarioDaRimuovere.getId();
+		
+		proprietarioService.rimuovi(idRimozione);
+		
+		if(proprietarioService.caricaSingoloProprietario(idRimozione) != null)
+			throw new RuntimeException("testRimozioneProprietario FAILED: record non cancellato");
+		
+		System.out.println("testRimozioneProprietario concluso.....");
+	}
+	
+	public static void testRimozioneAutomobile(AutomobileService automobileService) throws Exception{
+		System.out.println("testRimozioneAutomobile inizializzato.....");
+		List<Automobile> listaAutomobili = automobileService.listaTutteAutomobili();
+		
+		if(listaAutomobili.isEmpty())
+			throw new RuntimeException("testRimozioneAutomobile FAILED: non sono presenti record");
+		
+		Automobile automobileDaRimuovere = listaAutomobili.get(0);
+		
+		Long idRimozione = automobileDaRimuovere.getId();
+		
+		automobileService.rimuovi(idRimozione);
+		
+		if(automobileService.caricaSingolaAutomobile(idRimozione) != null)
+			throw new RuntimeException("testRimozioneAutomobile FAILED: record non cancellato");
+		
+		System.out.println("testRimozioneAutomobile concluso.....");
 	}
 
 }
