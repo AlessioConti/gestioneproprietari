@@ -53,8 +53,10 @@ public class TestProprietarioAutomobile {
 			testLetturaSingolaAutomobile(automobileService);
 			
 			testContaQuantiProprietariImmatricolazioneDopo(proprietarioService, automobileService);
-			*/
+		
 			testListaAutomobiliConProprietariCFIniziaCon(proprietarioService, automobileService);
+			*/
+			testFindAllConProprietariMinorenni(automobileService, proprietarioService);
 
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -215,13 +217,16 @@ public class TestProprietarioAutomobile {
 	public static void testListaAutomobiliConProprietariCFIniziaCon(ProprietarioService proprietarioService, AutomobileService automobileService) throws Exception{
 		System.out.println("testListaAutomobiliConProprietariCFIniziaCon inizializzato......");
 		String iniziale ="P";
-		List<Automobile> listaAutomobiliCF = automobileService.cercaTuttiConCFProprietarioIniziaCon(iniziale);
-		if(listaAutomobiliCF.isEmpty())
-			throw new RuntimeException("FAILED: record non caricati");
-		for(Automobile automobileInput : listaAutomobiliCF)
-			System.out.println(automobileInput);
+		System.out.println(automobileService.cercaTuttiConCFProprietarioIniziaCon(iniziale));
 		System.out.println("testListaAutomobiliConProprietariCFIniziaCon concluso......");
 				
+	}
+	
+	public static void testFindAllConProprietariMinorenni(AutomobileService automobileService, ProprietarioService proprietarioService) throws Exception{
+		System.out.println("testFindAllConProprietariMinorenni inizializzato......");
+
+		System.out.println(automobileService.cercaTutteAutomobiliConProprietariMinorenni());
+		System.out.println("testFindAllConProprietariMinorenni concluso.......");
 	}
 
 }
