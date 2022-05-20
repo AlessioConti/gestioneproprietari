@@ -11,27 +11,28 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="automobile")
+@Table(name = "automobile")
 public class Automobile {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name = "id")
 	private Long id;
-	@Column(name="marca")
+	@Column(name = "marca")
 	private String marca;
-	@Column(name="modello")
+	@Column(name = "modello")
 	private String modello;
-	@Column(name="targa")
+	@Column(name = "targa")
 	private String targa;
-	@Column(name="annoimmatricolazione")
+	@Column(name = "annoimmatricolazione")
 	private int annoImmatricolazione;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "proprietario_id")
 	private Proprietario proprietario;
 
-	public Automobile() {}
-	
+	public Automobile() {
+	}
+
 	public Automobile(String marca, String modello, String targa, int annoImmatricolazione, Proprietario proprietario) {
 		super();
 		this.marca = marca;
@@ -40,7 +41,7 @@ public class Automobile {
 		this.annoImmatricolazione = annoImmatricolazione;
 		this.proprietario = proprietario;
 	}
-	
+
 	public Automobile(String marca, String modello, String targa, int annoImmatricolazione) {
 		super();
 		this.marca = marca;
@@ -115,6 +116,7 @@ public class Automobile {
 	}
 
 	public String toString() {
-		return "Automobile [Marca= "+marca+", Modello= "+modello+", Targa= "+targa+", Anno Immatricolazione= "+annoImmatricolazione+"]";
+		return "Automobile [Marca= " + marca + ", Modello= " + modello + ", Targa= " + targa
+				+ ", Anno Immatricolazione= " + annoImmatricolazione + "]";
 	}
 }

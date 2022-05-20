@@ -23,39 +23,38 @@ public class TestProprietarioAutomobile {
 			System.out.println("In tabella Automobile sono presenti " + automobileService.listaTutteAutomobili().size()
 					+ " elementi");
 
-			/*
-			  testInserisciProprietario(proprietarioService);
-			  System.out.println("In tabella Proprietario sono presenti "
-			  +proprietarioService.listaTuttiProprietari().size()+ " elementi");
-			  
-			  testInserisciAutomobile(automobileService);
-			  System.out.println("In tabella Automobile sono presenti "
-			  +automobileService.listaTutteAutomobili().size()+ " elementi");
-			  
-			  testRimozioneProprietario(proprietarioService);
-			  System.out.println("In tabella Proprietario sono presenti "
-			  +proprietarioService.listaTuttiProprietari().size()+ " elementi");
-			  
-			  testRimozioneAutomobile(automobileService);
-			  System.out.println("In tabella Automobile sono presenti "
-			  +automobileService.listaTutteAutomobili().size()+ " elementi");
-			  
-			  testLetturaProprietari(proprietarioService);
-			  
-			  testLetturaAutomobili(automobileService);
-			  
-			  testUpdateProprietario(proprietarioService);
-			 
+			testInserisciProprietario(proprietarioService);
+			System.out.println("In tabella Proprietario sono presenti "
+					+ proprietarioService.listaTuttiProprietari().size() + " elementi");
+
+			testInserisciAutomobile(automobileService);
+			System.out.println("In tabella Automobile sono presenti " + automobileService.listaTutteAutomobili().size()
+					+ " elementi");
+
+			testRimozioneProprietario(proprietarioService);
+			System.out.println("In tabella Proprietario sono presenti "
+					+ proprietarioService.listaTuttiProprietari().size() + " elementi");
+
+			testRimozioneAutomobile(automobileService);
+			System.out.println("In tabella Automobile sono presenti " + automobileService.listaTutteAutomobili().size()
+					+ " elementi");
+
+			testLetturaProprietari(proprietarioService);
+
+			testLetturaAutomobili(automobileService);
+
+			testUpdateProprietario(proprietarioService);
+
 			testUpdateAutomobile(automobileService);
-			 
+
 			testLetturaSingolaProprietario(proprietarioService);
-			
+
 			testLetturaSingolaAutomobile(automobileService);
-			
+
 			testContaQuantiProprietariImmatricolazioneDopo(proprietarioService, automobileService);
-		
+
 			testListaAutomobiliConProprietariCFIniziaCon(proprietarioService, automobileService);
-			*/
+
 			testFindAllConProprietariMinorenni(automobileService, proprietarioService);
 
 		} catch (Throwable e) {
@@ -184,45 +183,47 @@ public class TestProprietarioAutomobile {
 		System.out.println(automobileDaAggiornare);
 		System.out.println("testUpdateAutomobile concluso.......");
 	}
-	
-	
-	public static void testLetturaSingolaProprietario(ProprietarioService proprietarioService) throws Exception{
+
+	public static void testLetturaSingolaProprietario(ProprietarioService proprietarioService) throws Exception {
 		System.out.println("testLetturaSingolaProprietario inizializzato.......");
 		Long idPerRicerca = 2L;
 		Proprietario risultatoRicerca = proprietarioService.caricaSingoloProprietario(idPerRicerca);
-		if(risultatoRicerca == null)
+		if (risultatoRicerca == null)
 			throw new RuntimeException("testLetturaSingolaProprietario FAILED: record non trovato");
 		System.out.println(risultatoRicerca);
 		System.out.println("testLetturaSingolaProprietario concluso.......");
 	}
-	
-	public static void testLetturaSingolaAutomobile(AutomobileService automobileService) throws Exception{
+
+	public static void testLetturaSingolaAutomobile(AutomobileService automobileService) throws Exception {
 		System.out.println("testLetturaSingolaAutomobile inizializzato.......");
 		Long idPerRicerca = 4L;
 		Automobile automobileRicerca = automobileService.caricaSingolaAutomobile(idPerRicerca);
-		if(automobileRicerca == null)
+		if (automobileRicerca == null)
 			throw new RuntimeException("testLetturaSingolaAutomobile FAILED: record non trovato");
 		System.out.println(automobileRicerca);
 		System.out.println("testLetturaSingolaAutomobile concluso.......");
 	}
-	
-	public static void testContaQuantiProprietariImmatricolazioneDopo(ProprietarioService proprietarioService, AutomobileService automobileService) throws Exception{
+
+	public static void testContaQuantiProprietariImmatricolazioneDopo(ProprietarioService proprietarioService,
+			AutomobileService automobileService) throws Exception {
 		System.out.println("testContaQuantiProprietariImmatricolazioneDopo inizializzato......");
 		int annoControllo = 2005;
 		Long proprietariTardaImmatricolazione = proprietarioService.contaQuantiMacchinaImmatricolataDopo(annoControllo);
 		System.out.println(proprietariTardaImmatricolazione);
 		System.out.println("testContaQuantiProprietariImmatricolazioneDopo concluso......");
 	}
-	
-	public static void testListaAutomobiliConProprietariCFIniziaCon(ProprietarioService proprietarioService, AutomobileService automobileService) throws Exception{
+
+	public static void testListaAutomobiliConProprietariCFIniziaCon(ProprietarioService proprietarioService,
+			AutomobileService automobileService) throws Exception {
 		System.out.println("testListaAutomobiliConProprietariCFIniziaCon inizializzato......");
-		String iniziale ="P";
+		String iniziale = "P";
 		System.out.println(automobileService.cercaTuttiConCFProprietarioIniziaCon(iniziale));
 		System.out.println("testListaAutomobiliConProprietariCFIniziaCon concluso......");
-				
+
 	}
-	
-	public static void testFindAllConProprietariMinorenni(AutomobileService automobileService, ProprietarioService proprietarioService) throws Exception{
+
+	public static void testFindAllConProprietariMinorenni(AutomobileService automobileService,
+			ProprietarioService proprietarioService) throws Exception {
 		System.out.println("testFindAllConProprietariMinorenni inizializzato......");
 
 		System.out.println(automobileService.cercaTutteAutomobiliConProprietariMinorenni());

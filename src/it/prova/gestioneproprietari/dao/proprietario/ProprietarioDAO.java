@@ -4,6 +4,6 @@ import it.prova.gestioneproprietari.dao.IBaseDAO;
 import it.prova.gestioneproprietari.model.Proprietario;
 
 public interface ProprietarioDAO extends IBaseDAO<Proprietario> {
-	
+
 	public Long contaQuantiConMacchinaDataImmatricolazioneDopo(int dataControllo) throws Exception;
 }
