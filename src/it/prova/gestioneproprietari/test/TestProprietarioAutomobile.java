@@ -30,9 +30,13 @@ public class TestProprietarioAutomobile {
 			
 			testRimozioneProprietario(proprietarioService);
 			System.out.println("In tabella Proprietario sono presenti " +proprietarioService.listaTuttiProprietari().size()+ " elementi");
-			*/
+			
 			testRimozioneAutomobile(automobileService);
 			System.out.println("In tabella Automobile sono presenti " +automobileService.listaTutteAutomobili().size()+ " elementi");
+			
+			testLetturaProprietari(proprietarioService);
+			*/
+			testLetturaAutomobili(automobileService);
 			
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -107,6 +111,31 @@ public class TestProprietarioAutomobile {
 			throw new RuntimeException("testRimozioneAutomobile FAILED: record non cancellato");
 		
 		System.out.println("testRimozioneAutomobile concluso.....");
+	}
+	
+	public static void testLetturaProprietari(ProprietarioService proprietarioService) throws Exception{
+		System.out.println("testLetturaProprietari inizializzato......");
+		Proprietario nuovoProprietario = new Proprietario("Andrea", "Versace", "Prova Prova1");
+		Proprietario nuovoProprietario2 = new Proprietario("Giulia", "Conti", "Prova Prova2");
+		proprietarioService.inserisci(nuovoProprietario);
+		proprietarioService.inserisci(nuovoProprietario2);
+		List<Proprietario> listaTuttiProprietari = proprietarioService.listaTuttiProprietari();
+		for(Proprietario proprietarioInput : listaTuttiProprietari)
+			System.out.println(proprietarioInput);
+		
+		System.out.println("testLetturaProprietari concluso......");
+	}
+	
+	public static void testLetturaAutomobili(AutomobileService automobileService) throws Exception{
+		System.out.println("testLetturaAutomobili inizializzato.....");
+		Automobile nuovaAutomobile = new Automobile("Fiat", "Multipla", "JB222AD", 2003);
+		Automobile nuovaAutomobile2 = new Automobile("Nissan", "Qasqai", "AM000GS", 2016);
+		automobileService.inserisci(nuovaAutomobile);
+		automobileService.inserisci(nuovaAutomobile2);
+		List<Automobile> listaTutteAutomobili = automobileService.listaTutteAutomobili();
+		for(Automobile automobileInput : listaTutteAutomobili)
+			System.out.println(automobileInput);
+		System.out.println("testLetturaAutomobili concluso.....");
 	}
 
 }
