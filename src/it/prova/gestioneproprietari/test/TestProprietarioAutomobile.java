@@ -51,8 +51,10 @@ public class TestProprietarioAutomobile {
 			testLetturaSingolaProprietario(proprietarioService);
 			
 			testLetturaSingolaAutomobile(automobileService);
-			*/
+			
 			testContaQuantiProprietariImmatricolazioneDopo(proprietarioService, automobileService);
+			*/
+			testListaAutomobiliConProprietariCFIniziaCon(proprietarioService, automobileService);
 
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -208,6 +210,18 @@ public class TestProprietarioAutomobile {
 		Long proprietariTardaImmatricolazione = proprietarioService.contaQuantiMacchinaImmatricolataDopo(annoControllo);
 		System.out.println(proprietariTardaImmatricolazione);
 		System.out.println("testContaQuantiProprietariImmatricolazioneDopo concluso......");
+	}
+	
+	public static void testListaAutomobiliConProprietariCFIniziaCon(ProprietarioService proprietarioService, AutomobileService automobileService) throws Exception{
+		System.out.println("testListaAutomobiliConProprietariCFIniziaCon inizializzato......");
+		String iniziale ="P";
+		List<Automobile> listaAutomobiliCF = automobileService.cercaTuttiConCFProprietarioIniziaCon(iniziale);
+		if(listaAutomobiliCF.isEmpty())
+			throw new RuntimeException("FAILED: record non caricati");
+		for(Automobile automobileInput : listaAutomobiliCF)
+			System.out.println(automobileInput);
+		System.out.println("testListaAutomobiliConProprietariCFIniziaCon concluso......");
+				
 	}
 
 }

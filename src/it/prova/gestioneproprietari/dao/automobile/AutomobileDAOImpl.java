@@ -48,12 +48,12 @@ public class AutomobileDAOImpl implements AutomobileDAO {
 		if(iniziale == null)
 			throw new Exception("Valore in input non valido");
 		
-		TypedQuery<Automobile> query = entityManager.createQuery("from Automobile a join a.proprietario p where p.nome like ?1", Automobile.class);
+		TypedQuery<Automobile> query = entityManager.createQuery("select distinct (a) from Automobile a join a.proprietario p where p.nome like ?1", Automobile.class);
 		return query.setParameter(1, iniziale+ "%").getResultList();
 	}
 	
 	public List<Automobile> findAllAutomobiliConProprietariMinorenni() throws Exception{
-		TypedQuery<Automobile> query = entityManager.createQuery("from Automobile a join a.proprietario p where p.datanascita-2022 < 18", Automobile.class);
+		TypedQuery<Automobile> query = entityManager.createQuery("from Automobile a join a.proprietario p where p.dataNascita - 2022 < 18", Automobile.class);
 		
 		return query.getResultList();
 	}
