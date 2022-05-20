@@ -16,7 +16,7 @@ public class ProprietarioDAOImpl implements ProprietarioDAO {
 	}
 	
 	public List<Proprietario> list() throws Exception{
-		return entityManager.createQuery("from proprietario", Proprietario.class).getResultList();
+		return entityManager.createQuery("from Proprietario", Proprietario.class).getResultList();
 	}
 	
 	public Proprietario get(Long id) throws Exception{

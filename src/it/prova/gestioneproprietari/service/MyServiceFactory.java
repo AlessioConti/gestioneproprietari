@@ -12,7 +12,7 @@ public class MyServiceFactory {
 	private static ProprietarioService proprietarioServiceInstance = null;
 	private static AutomobileService automobileServiceInstance = null;
 
-	public static ProprietarioService getAbitanteServiceInstance() {
+	public static ProprietarioService getProprietarioServiceInstance() {
 		if (proprietarioServiceInstance == null) {
 			proprietarioServiceInstance = new ProprietarioServiceImpl();
 			proprietarioServiceInstance.setProprietarioDAO(MyDaoFactory.getProprietarioDAOInstance());
@@ -20,7 +20,7 @@ public class MyServiceFactory {
 		return proprietarioServiceInstance;
 	}
 
-	public static AutomobileService getMunicipioServiceInstance() {
+	public static AutomobileService getAutomobileServiceInstance() {
 		if (automobileServiceInstance == null) {
 			automobileServiceInstance = new AutomobileServiceImpl();
 			automobileServiceInstance.setAutomobileDAO(MyDaoFactory.getAutomobileDAOInstance());

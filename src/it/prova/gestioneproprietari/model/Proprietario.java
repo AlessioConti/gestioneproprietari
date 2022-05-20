@@ -47,6 +47,13 @@ public class Proprietario {
 		this.nome = nome;
 		this.cognome = cognome;
 	}
+	
+	public Proprietario(String nome, String cognome, String codiceFiscale) {
+		super();
+		this.nome = nome;
+		this.cognome = cognome;
+		this.codiceFiscale = codiceFiscale;
+	}
 
 	public Proprietario(Long id, String nome, String cognome, String codiceFiscale, Date dataNascita) {
 		super();

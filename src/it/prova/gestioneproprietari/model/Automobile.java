@@ -30,6 +30,8 @@ public class Automobile {
 	@JoinColumn(name = "proprietario_id")
 	private Proprietario proprietario;
 
+	public Automobile() {}
+	
 	public Automobile(String marca, String modello, String targa, int annoImmatricolazione, Proprietario proprietario) {
 		super();
 		this.marca = marca;
@@ -37,6 +39,14 @@ public class Automobile {
 		this.targa = targa;
 		this.annoImmatricolazione = annoImmatricolazione;
 		this.proprietario = proprietario;
+	}
+	
+	public Automobile(String marca, String modello, String targa, int annoImmatricolazione) {
+		super();
+		this.marca = marca;
+		this.modello = modello;
+		this.targa = targa;
+		this.annoImmatricolazione = annoImmatricolazione;
 	}
 
 	public Automobile(String marca, String modello) {
