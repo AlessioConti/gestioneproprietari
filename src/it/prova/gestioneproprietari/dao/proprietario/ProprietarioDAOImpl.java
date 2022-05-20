@@ -44,8 +44,8 @@ public class ProprietarioDAOImpl implements ProprietarioDAO {
 		entityManager.remove(entityManager.merge(proprietarioInstance));
 	}
 	
-	public int contaQuantiConMacchinaDataImmatricolazioneDopo(int dataControllo) throws Exception{
-		TypedQuery<Proprietario> query = entityManager.createQuery("select count(p) from Proprietario p join p.automobili p where p.dataimmatricolazione > ?1", Proprietario.class);
-		return query.setParameter(1, dataControllo).getFirstResult();
+	public Long contaQuantiConMacchinaDataImmatricolazioneDopo(int dataControllo) throws Exception{
+		TypedQuery<Long> query = entityManager.createQuery("select count(p) from Proprietario p join p.automobili a where a.annoImmatricolazione > ?1", Long.class);
+		return query.setParameter(1, dataControllo).getSingleResult();
 	}
 }

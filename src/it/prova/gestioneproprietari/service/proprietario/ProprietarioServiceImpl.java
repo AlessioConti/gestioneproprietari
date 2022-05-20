@@ -106,7 +106,7 @@ public class ProprietarioServiceImpl implements ProprietarioService {
 		}
 	}
 
-	public int contaQuantiMacchinaImmatricolataDopo(int dataCheck) throws Exception {
+	public Long contaQuantiMacchinaImmatricolataDopo(int dataCheck) throws Exception {
 		EntityManager entityManager = EntityManagerUtil.getEntityManager();
 
 		try {

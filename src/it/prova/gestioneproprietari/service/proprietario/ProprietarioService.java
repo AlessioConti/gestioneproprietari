@@ -17,7 +17,7 @@ public interface ProprietarioService {
 	
 	public void rimuovi(Long idProprietarioInstance) throws Exception;
 	
-	public int contaQuantiMacchinaImmatricolataDopo(int dataCheck) throws Exception;
+	public Long contaQuantiMacchinaImmatricolataDopo(int dataCheck) throws Exception;
 	
 	public void setProprietarioDAO(ProprietarioDAO proprietarioDAO);
 	

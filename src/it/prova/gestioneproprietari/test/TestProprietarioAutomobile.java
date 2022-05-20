@@ -49,8 +49,10 @@ public class TestProprietarioAutomobile {
 			testUpdateAutomobile(automobileService);
 			 
 			testLetturaSingolaProprietario(proprietarioService);
-			*/
+			
 			testLetturaSingolaAutomobile(automobileService);
+			*/
+			testContaQuantiProprietariImmatricolazioneDopo(proprietarioService, automobileService);
 
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -198,6 +200,14 @@ public class TestProprietarioAutomobile {
 			throw new RuntimeException("testLetturaSingolaAutomobile FAILED: record non trovato");
 		System.out.println(automobileRicerca);
 		System.out.println("testLetturaSingolaAutomobile concluso.......");
+	}
+	
+	public static void testContaQuantiProprietariImmatricolazioneDopo(ProprietarioService proprietarioService, AutomobileService automobileService) throws Exception{
+		System.out.println("testContaQuantiProprietariImmatricolazioneDopo inizializzato......");
+		int annoControllo = 2005;
+		Long proprietariTardaImmatricolazione = proprietarioService.contaQuantiMacchinaImmatricolataDopo(annoControllo);
+		System.out.println(proprietariTardaImmatricolazione);
+		System.out.println("testContaQuantiProprietariImmatricolazioneDopo concluso......");
 	}
 
 }
