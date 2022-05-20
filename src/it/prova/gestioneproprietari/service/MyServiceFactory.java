@@ -1,31 +1,31 @@
 package it.prova.gestioneproprietari.service;
 
 import it.prova.gestioneproprietari.dao.MyDaoFactory;
-import it.prova.municipioAbitanteJPA.service.abitante.AbitanteService;
-import it.prova.municipioAbitanteJPA.service.abitante.AbitanteServiceImpl;
-import it.prova.municipioAbitanteJPA.service.municipio.MunicipioService;
-import it.prova.municipioAbitanteJPA.service.municipio.MunicipioServiceImpl;
+import it.prova.gestioneproprietari.service.proprietario.ProprietarioService;
+import it.prova.gestioneproprietari.service.proprietario.ProprietarioServiceImpl;
+import it.prova.gestioneproprietari.service.automobile.AutomobileService;
+import it.prova.gestioneproprietari.service.automobile.AutomobileServiceImpl;
 
 public class MyServiceFactory {
 
 	// rendiamo le istanze restituite SINGLETON
-	private static AbitanteService abitanteServiceInstance = null;
-	private static MunicipioService municipioServiceInstance = null;
+	private static ProprietarioService proprietarioServiceInstance = null;
+	private static AutomobileService automobileServiceInstance = null;
 
-	public static AbitanteService getAbitanteServiceInstance() {
-		if (abitanteServiceInstance == null) {
-			abitanteServiceInstance = new AbitanteServiceImpl();
-			abitanteServiceInstance.setAbitanteDAO(MyDaoFactory.getAbitanteDAOInstance());
+	public static ProprietarioService getAbitanteServiceInstance() {
+		if (proprietarioServiceInstance == null) {
+			proprietarioServiceInstance = new ProprietarioServiceImpl();
+			proprietarioServiceInstance.setProprietarioDAO(MyDaoFactory.getProprietarioDAOInstance());
 		}
-		return abitanteServiceInstance;
+		return proprietarioServiceInstance;
 	}
 
-	public static MunicipioService getMunicipioServiceInstance() {
-		if (municipioServiceInstance == null) {
-			municipioServiceInstance = new MunicipioServiceImpl();
-			municipioServiceInstance.setMunicipioDAO(MyDaoFactory.getMunicipioDAOInstance());
+	public static AutomobileService getMunicipioServiceInstance() {
+		if (automobileServiceInstance == null) {
+			automobileServiceInstance = new AutomobileServiceImpl();
+			automobileServiceInstance.setAutomobileDAO(MyDaoFactory.getAutomobileDAOInstance());
 		}
-		return municipioServiceInstance;
+		return automobileServiceInstance;
 	}
 
 }
