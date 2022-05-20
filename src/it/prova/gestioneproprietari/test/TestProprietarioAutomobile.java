@@ -35,8 +35,12 @@ public class TestProprietarioAutomobile {
 			System.out.println("In tabella Automobile sono presenti " +automobileService.listaTutteAutomobili().size()+ " elementi");
 			
 			testLetturaProprietari(proprietarioService);
-			*/
+			
 			testLetturaAutomobili(automobileService);
+			
+			testUpdateProprietario(proprietarioService);
+			*/
+			testUpdateAutomobile(automobileService);
 			
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -136,6 +140,33 @@ public class TestProprietarioAutomobile {
 		for(Automobile automobileInput : listaTutteAutomobili)
 			System.out.println(automobileInput);
 		System.out.println("testLetturaAutomobili concluso.....");
+	}
+	
+	public static void testUpdateProprietario(ProprietarioService proprietarioService) throws Exception{
+		System.out.println("testUpdateProprietario inizializzato......");
+		List<Proprietario> listaProprietari = proprietarioService.listaTuttiProprietari();
+		if(listaProprietari.isEmpty())
+			throw new RuntimeException("testUpdateProprietario FAILED: non sono presenti record");
+		
+		Proprietario proprietarioDaAggiornare = listaProprietari.get(0);
+		System.out.println(proprietarioDaAggiornare);
+		proprietarioDaAggiornare.setNome("Luca");
+		proprietarioService.aggiorna(proprietarioDaAggiornare);
+		System.out.println(proprietarioDaAggiornare);
+		System.out.println("testUpdateProprietario concluso........");
+	}
+	
+	public static void testUpdateAutomobile(AutomobileService automobileService) throws Exception{
+		System.out.println("testUpdateAutomobile inizializzato.......");
+		List<Automobile> listaAutomobili = automobileService.listaTutteAutomobili();
+		if(listaAutomobili.isEmpty())
+			throw new RuntimeException("testUpdateAutomobile FAILED: non sono presenti record");
+		Automobile automobileDaAggiornare = listaAutomobili.get(0);
+		System.out.println(automobileDaAggiornare);
+		automobileDaAggiornare.setMarca("Fiat");
+		automobileService.aggiorna(automobileDaAggiornare);
+		System.out.println(automobileDaAggiornare);
+		System.out.println("testUpdateAutomobile concluso.......");
 	}
 
 }
